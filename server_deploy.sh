@@ -17,6 +17,8 @@ echo "Deploying application ..."
 
     php artisan optimize
 
+    sudo chown -R www-data:www-data *
+
     echo "" | sudo systemctl restart php7.3-fpm
 
 # Exit maintenance mode
