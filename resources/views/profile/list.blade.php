@@ -14,7 +14,7 @@
                 <div class="p3">Members</div>
             </div>
             <ul class="list-group">
-                <a href="players"><li class="list-group-item">All Players <span class="badge badge-secondary">{{ $players->count() }}</span></li></a>
+                <a href="players"><li class="list-group-item">All Players <span class="badge badge-secondary">{{ $playersAll->count() }}</span></li></a>
                 <a href="staffs"><li class="list-group-item">Staffs <span class="badge badge-secondary">2</span></li></a>
                 <a href="donators"><li class="list-group-item">Donators <span class="badge badge-secondary">0</span></li></a>
             </ul>
@@ -57,6 +57,7 @@
                 @endforeach
             </tbody>
           </table>
+          {{ $players->links() }}
     </div>
 </div>
 <script>

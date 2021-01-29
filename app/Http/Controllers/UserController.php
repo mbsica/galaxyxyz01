@@ -23,10 +23,12 @@ class UserController extends Controller
         return UserResource::collection($users);
     }
     public function playerList() {
-        $players = User::orderby('last_login_at','desc')->get();
+        $players = User::orderby('last_login_at','desc')->paginate();
+        $playersAll = User::orderby('last_login_at','desc')->get();
 
         return view('profile.list',[
             'players'=>$players,
+            'playersAll'=>$playersAll,
         ]);
     }
     public function staffList() {
@@ -43,5 +45,9 @@ class UserController extends Controller
             'srmods'=>$srmods,
             'mods'=>$mods,
         ]);
+    }
+    public function leaderBoard() {
+
+        return view('profile.leaders');
     }
 }

@@ -35,6 +35,7 @@ Route::prefix('user')->namespace('Azuriom\\Http\\Controllers')->group(function (
 
 Route::get('/players', [UserController::class, 'playerList']);
 Route::get('/staffs', [UserController::class, 'staffList']);
+Route::get('/leaders', [UserController::class, 'leaderBoard']);
 
 Route::prefix('user')->group(function () {
     Route::get('/login/callback', [LoginController::class, 'handleProviderCallback'])->name('login.callback');
