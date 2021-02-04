@@ -21,12 +21,14 @@
                         <i class="fas fa-globe"></i>
                     </div>
                     <div class="server-medeelel">
-                        @if($server && $server->isOnline())
-                            <div class="small text-uppercase">Сэрвэрт нийт</div>
-                            <div class="big text-uppercase font-weight-bold">{{ trans_choice('messages.server.online', $server->getOnlinePlayers()) }}</div>
-                        @else
-                        <div class="small text-uppercase">{{ trans('messages.server.offline') }}</div>
-                        @endif
+                        <a href="/games">
+                            @if($server && $server->isOnline())
+                                <div class="small text-uppercase">Сэрвэрт нийт</div>
+                                <div class="big text-uppercase font-weight-bold">{{ trans_choice('messages.server.online', $server->getOnlinePlayers()) }}</div>
+                            @else
+                            <div class="small text-uppercase">{{ trans('messages.server.offline') }}</div>
+                            @endif
+                        </a>
                     </div>
                 </div>
             </div>
