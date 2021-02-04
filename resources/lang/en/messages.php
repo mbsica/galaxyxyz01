@@ -89,6 +89,7 @@ return [
 
     'home' => 'Home',
     'member' => 'Members',
+    'games' =>'Games',
     'welcome' => 'Welcome on :name',
 
     'maintenance' => 'Maintenance',

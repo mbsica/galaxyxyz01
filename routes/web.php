@@ -1,6 +1,7 @@
 <?php
 
 use Azuriom\Http\Controllers\Auth\LoginController;
+use Azuriom\Http\Controllers\GameController;
 use Azuriom\Http\Controllers\HomeController;
 use Azuriom\Http\Controllers\NotificationController;
 use Azuriom\Http\Controllers\PageController;
@@ -32,7 +33,7 @@ Route::prefix('user')->namespace('Azuriom\\Http\\Controllers')->group(function (
         'register' => setting('register', true),
     ]);
 });
-
+Route::get('/games', [GameController::class, 'index']);
 Route::get('/players', [UserController::class, 'playerList']);
 Route::get('/staffs', [UserController::class, 'staffList']);
 Route::get('/leaders', [UserController::class, 'leaderBoard']);
