@@ -5,6 +5,7 @@ namespace Azuriom\Http\Controllers;
 use Azuriom\Http\Resources\User as UserResource;
 use Azuriom\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -45,9 +46,5 @@ class UserController extends Controller
             'srmods'=>$srmods,
             'mods'=>$mods,
         ]);
-    }
-    public function leaderBoard() {
-
-        return view('profile.leaders');
     }
 }

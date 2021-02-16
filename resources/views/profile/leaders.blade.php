@@ -7,58 +7,104 @@
 
 <div style="height: 15px"></div> 
 <div class="container content pl-0 pr-0">
-    <div class="row">
-        <div class="col-md-4 pb-4">
-            <div class="accordion" id="accordionExample">
-                <div class="card"  style="border-bottom: 1px solid rgba(118, 118, 118, 0.405)">
-                    <div class="card-header package-games" id="headFactions">
-                      <img src="{{URL::asset('/assets/img/factions.png')}}" alt="">
-                      <a class="btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseFactions" aria-expanded="false" aria-controls="collapseFactions">
-                          Factions
-                      </a>
-                    </div>
-                  </div>
-                  <div class="card"  style="border-bottom: 1px solid rgba(118, 118, 118, 0.405)">
-                    <div class="card-header package-games" id="headSky">
-                      <img src="{{URL::asset('/assets/img/skyblock1.png')}}" alt="">
-                      <a class="btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseSky" aria-expanded="false" aria-controls="collapseSky">
-                          Skyblock
-                      </a>
-                    </div>
-                  </div>
-                  <div class="card" style="border-bottom: 1px solid rgba(118, 118, 118, 0.405)">
-                    <div class="card-header package-games" id="headingOne">
-                      <img src="{{URL::asset('/assets/img/spawner3.png')}}" alt="">
-                      <a class="btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                          Prison 
-                        </a>
-                      </div>
-                  </div>
-                <div class="card" style="border-bottom: 1px solid rgba(118, 118, 118, 0.405)">
-                  <div class="card-header package-games" id="headingTwo">
-                    <img src="{{URL::asset('/assets/img/grass-block.png')}}" alt="">
-                    <a class="btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      Survival
-                    </a>
-                    </div>
-                </div>
-                <div class="card" style="border-bottom: 1px solid rgba(118, 118, 118, 0.405)">
-                  <div class="card-header package-games" id="headingThree">
-                      <img src="{{URL::asset('/assets/img/omegatrainer.png')}}" alt="">
-                      <a class="btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        PubG 
-                      </a>
-                  </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-md-8">
-            <div class="row">
-                here
-            </div>
-        </div>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home">Аллага</a></li>
+    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu1">Тоглосон Цаг</a></li>
+    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu2">Блок ухсан</a></li>
+    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu3">Мөнгө</a></li>
+  </ul>
+  <div style="height: 15px"></div>
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade active show">
+      <?php $number = 1; ?>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Нэр</th>
+            <th scope="col">Үзүүлэлт</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($kills as $kill)
+          <tr>
+            <th scope="row">{{ $number }}</th>
+            <td>{{ $kill->name }}</td>
+            <td>{{ $kill->stat_value }}</td>
+          </tr>
+          <?php $number++; ?>
+          @endforeach
+        </tbody>
+      </table>
     </div>
+    <div id="menu1" class="tab-pane fade">
+      <?php $number = 1; ?>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Нэр</th>
+            <th scope="col">Үзүүлэлт</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($playedhours as $playedhour)
+          <tr>
+            <th scope="row">{{ $number }}</th>
+            <td>{{ $playedhour->name }}</td>
+            <td>{{ $playedhour->stat_value }}</td>
+          </tr>
+          <?php $number++; ?>
+          @endforeach
+        </tbody>
+      </table>
     </div>
+    <div id="menu2" class="tab-pane fade">
+      <?php $number = 1; ?>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Нэр</th>
+            <th scope="col">Үзүүлэлт</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($blockmines as $blockmine)
+          <tr>
+            <th scope="row">{{ $number }}</th>
+            <td>{{ $blockmine->name }}</td>
+            <td>{{ $blockmine->stat_value }}</td>
+          </tr>
+          <?php $number++; ?>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <?php $number = 1; ?>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Нэр</th>
+            <th scope="col">Үзүүлэлт</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($moneys as $money)
+          <tr>
+            <th scope="row">{{ $number }}</th>
+            <td>{{ $money->name }}</td>
+            <td>{{ $money->stat_value }}</td>
+          </tr>
+          <?php $number++; ?>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 @endsection

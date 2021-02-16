@@ -3,6 +3,7 @@
 use Azuriom\Http\Controllers\Auth\LoginController;
 use Azuriom\Http\Controllers\GameController;
 use Azuriom\Http\Controllers\HomeController;
+use Azuriom\Http\Controllers\LeadersController;
 use Azuriom\Http\Controllers\NotificationController;
 use Azuriom\Http\Controllers\PageController;
 use Azuriom\Http\Controllers\PostCommentController;
@@ -36,7 +37,7 @@ Route::prefix('user')->namespace('Azuriom\\Http\\Controllers')->group(function (
 Route::get('/games', [GameController::class, 'index']);
 Route::get('/players', [UserController::class, 'playerList']);
 Route::get('/staffs', [UserController::class, 'staffList']);
-Route::get('/leaders', [UserController::class, 'leaderBoard']);
+Route::get('/leaders', [LeadersController::class, 'index']);
 
 Route::prefix('user')->group(function () {
     Route::get('/login/callback', [LoginController::class, 'handleProviderCallback'])->name('login.callback');
