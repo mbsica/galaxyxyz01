@@ -15,12 +15,15 @@ class LeadersController extends Controller
                    ->join('lhrv_statistics', 'default_lhrv_alltime.stat_id', '=', 'lhrv_statistics.stat_id')
                    ->select('default_lhrv_alltime.*', 'lhrv_players.name')
                    ->get();
+        $ftop = DB::table('FTOP')->get();
+        $sortedFtop = $ftop->sortByDesc('TotalWorth');
         $sorted = $leaders->sortByDesc('stat_value');
         return view('profile.leaders', [
             'kills' => $sorted->where('stat_id', '=', 1)->take(100),
             'playedhours' => $sorted->where('stat_id', '=', 2)->take(100),
             'blockmines' => $sorted->where('stat_id', '=', 4)->take(100),
             'moneys' => $sorted->where('stat_id', '=', 6)->take(100),
+            'ftops' => $sortedFtop,
         ]);
     }
 }
